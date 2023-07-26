@@ -1,0 +1,202 @@
+.nav-item:hover
+{
+  color: white;
+  background-color:#CAE4DB;
+    padding: 0 18px;
+}
+
+
+.btn-info
+{
+  background-color: #DCAE10;
+}
+
+/*
+      color                                               font
+  MORNING SKY : #CAE4DB                           heading: forum
+  MIST : #7A9D96
+  HONEY :#DCAE10                                  sub-headings: arboria
+  CERULEAN : #00303F
+
+
+*/
+
+                                                  /* fonts */
+.j-head
+{
+  font-family:"forum";
+  color:#00303F;
+}
+
+.j-subhead
+{
+  font-family: "arboria";
+  color:#DCAE10;
+}
+
+                                                      /* home */
+#home
+{
+  text-align: center;
+  width: 100%;
+  height: 710px;
+  background-color:#CAE4DB;
+  padding: 60px;
+}
+
+.header-box
+{
+  margin-top: 68px;
+}
+
+.image-box
+{
+  background-color: white;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.header-image-size
+{
+  height: 450px;
+  width: 450px;
+  padding: 20px;
+}
+
+.home-words
+{
+  padding-top: 120px;
+}
+
+.home-heading
+{
+  font-family:"forum";
+  font-size:7em;
+  color:#00303F;
+}
+
+.home-subhead
+{
+  font-size: 1.75em;
+}
+
+
+
+
+/* @media (max-width:730px)
+{
+  #home
+  {
+    font-size: 16px;
+  }
+  .home-heading
+  {
+    font-size:5.0em;
+  }
+
+} */
+
+
+
+                                    /* features */
+.features
+{
+  padding: 7% 15%;
+  background-color: white;
+
+
+}
+.feature-box{
+  text-align: center;
+  padding: 4.5%;
+}
+
+.ficon
+{
+  font-size: 50px;
+  color: #7A9D96;
+  margin: 1rem;
+}
+.ficon:hover
+{
+  color: #CAE4DB;
+}
+
+
+                                            /* portfolio */
+
+#portfolio
+{
+  /* margin-top: 58px; */
+  width: 100%;
+  height: 600px;
+  background-color:#CAE4DB;
+  text-align: center;
+  padding-top: 58px;
+
+}
+.testimonial-image
+{
+  border-radius: 100%;
+  width: 10%;
+  margin: 20px;
+}
+.carousel-item{
+  padding: 7% 15%;;
+}
+
+
+
+
+                                              /* our-works
+                                              #CAE4DB                           heading: forum
+                                              MIST : #7A9D96*/
+#our-works
+{
+  width: 100%;
+  height: 1100px;
+  background-color:#CAE4DB;
+  /* color: white; */
+  text-align:center;
+
+}
+
+.our-works-img-size
+{
+  height:300px;
+  width: 100%;
+}
+
+.ow-header
+{
+  background-color:white;
+  font-size: 50px;
+  margin-bottom: 50px;
+  /* padding-top: 50px; */
+}
+.card-title
+{
+  font-family:"forum";
+  color:#00303F;
+}
+.card-text
+{
+  font-family: "arboria";
+  color:#DCAE10;
+}
+
+
+
+
+                                                /* contact */
+#contact
+{
+  width: 100%;
+  height: 250px;
+  text-align: center;
+}
+.contact
+{
+  padding: 20px;
+  margin-top: 70px;
+}
