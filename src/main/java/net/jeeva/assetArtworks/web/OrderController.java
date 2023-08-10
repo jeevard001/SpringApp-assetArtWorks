@@ -100,7 +100,6 @@ public class OrderController {
 		
 
 	@PostMapping("/buy")
-	 @ResponseBody
 	public String buy(@RequestParam("id") long id,@RequestParam("phno") String phno,@RequestParam("address") String address)
 	{
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -121,7 +120,7 @@ public class OrderController {
 		orderService.saveOrder(orderDto);
 		
 		
-		return "ordered";
+		return "redirect:/userOrders";
 	}
 	
 	@GetMapping("/setstatus")
@@ -134,11 +133,11 @@ public class OrderController {
 	}
 	
 	@PostMapping("/setstatus")
-	 @ResponseBody
 	public String updateStatus(@RequestParam("id") long id,@RequestParam("status") String status)
 	{
 		orderService.statusUpdate(id, status);
-		return "Status updated";
+		return "redirect:/orders?updated";
+		//return "redirect:/home?deleted2";
 	}
 	
 	

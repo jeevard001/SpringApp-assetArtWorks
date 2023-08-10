@@ -18,40 +18,44 @@
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">asset artworks</a>
+            <a class="navbar-brand" href="/home">asset artworks</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
+                <ul class="navbar-nav navbar-rightAlign ms-auto">  <!--  me-auto mb-2 mb-lg-0 -->
+                	
+               <!--  <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    </li>  -->    
+                     <li class="nav-item" sec:authorize="hasAuthority('ROLE_ADMIN')">
+                        <a class="nav-link active" aria-current="page" href="/users">Show Users</a>
                     </li>
                      <li class="nav-item" sec:authorize="hasAuthority('ROLE_ADMIN')">
-                        <a class="nav-link active" aria-current="page" href="/users">show users</a>
-                    </li>
-                     <li class="nav-item" sec:authorize="hasAuthority('ROLE_ADMIN')">
-                        <a class="nav-link active" aria-current="page" href="/orders" >all orders</a>
+                        <a class="nav-link active" aria-current="page" href="/orders" >All Orders</a>
                     </li>
                      <li class="nav-item" >
-                        <a class="nav-link active" aria-current="page" href="/userOrders">my orders</a>
+                        <a class="nav-link active" aria-current="page" href="/userOrders">My Orders</a>
                     </li>
                      <li class="nav-item" >
                         <a class="nav-link active" aria-current="page" href="/order">Custom Order</a>
                     </li>
                     <li class="nav-item">										<!--<button type="button" class="btn btn-primary"> </button> -->
-                        <a class="nav-link active" aria-current="page" th:href="@{/logout}">Log out</a>
+                        <a class="nav-link active" aria-current="page" th:href="@{/logout}">Log Out</a>
+                    </li>
+                    <li class="nav-item">										
+                        <a class="nav-link active" aria-current="page" sec:authentication="name"></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     
-    				 <h2 sec:authorize="hasAuthority('ROLE_ADMIN')">Welcome admin</h2> 
+    				 <h2 sec:authorize="hasAuthority('ROLE_ADMIN')">Welcome Admin</h2> 
     			<!-- 	 <h2 sec:authorize="hasAuthority('ROLE_USER')">Welcome </h2> <h2 sec:authentication="name"></h2>  -->
     				
     				
-    				<!-- <h2 sec:authentication="prinicapl.name"></h2>  -->
+    				
     				
      <section id="home">
 
@@ -68,7 +72,7 @@
           <div class="   d-flex align-items-center justify-content-center" style="text-align:center;" >
             <div >
               <h1 class="home-heading">assetArtworks</h1>
-              <h1 class="j-subhead home-subhead"><a class="j-subhead" href="#sale">BUY FROM SALE</a><a class="j-subhead" href="/order"> |CUSTOM ORDER</a></h1>
+              <h1 class="j-subhead home-subhead"><a class="j-subhead" href="#sale">BUY FROM SALE</a><a class="j-subhead" href="/order"> | CUSTOM ORDER</a></h1>
             </div>
           </div>
 
@@ -86,38 +90,19 @@
     <div class="mt-5">
         
         <div class="container" style=" border: 2px solid white; border-radius: 25px; background-color:white; padding:40px;">
-        <h1 class="text-center">OurWorks</h1>
+        <h1 class="text-center" >Our Works</h1>
             <!--Add1 User Button-->
             <div class="my-3" sec:authorize="hasAuthority('ROLE_ADMIN')">
                 <a href="/add1"><button type="button" class="btn btn-primary">Add Image</button></a>
             </div>
             
+       <div th:if="${param.deleted1}">
+          <div class="alert alert-warning">
+            Image deleted from Our Works!!
+          </div>
+      </div>
             
-         <!--   <table class="table border" >
-                <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Created AT</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">About</th>
-                    <th scope="col">view</th>
-                    <th scope="col">delete</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="list : ${image1List}">
-                    <td th:text="${list.id}"></td>
-                    <td><img height="250px"  th:src="@{${'/display1?id=' + list.id}}" alt=""></td>
-                    <td th:text="${list.date}"></td>
-                     <td th:text="${list.title}"></td>
-                      <td th:text="${list.about}"></td>
-                      <td><a th:href="@{/display1(id=${list.id})}" class="btn btn-info text-right" target="_blank">View</a></td>
-                      <td><a th:href="@{/delete1(id=${list.id})}" class="btn btn-info text-right" target="_blank">delete</a></td>
-                </tr>
-                </tbody>
-            </table>  
-            -->
+        
             
               <!--card starts here -->
             <!--  	<div class="wrapper" id="grid">
@@ -137,18 +122,26 @@
  				    
  				      <!--card ends here-->
  			 <!-- card tester our works-->
- 				  <div class="container">
+  <div class="container">
     <div class="row">
-        <div class="col-md-4 col-sm-6 mb-4" th:each="list : ${image1List}">
-            <div class="card">
-                <img class="card-img-top" th:src="@{${'/display1?id=' + list.id}}" alt="Card image cap">
+        <div class="col-md-4 col-sm-6 mb-4" th:each="list : ${image1List}" >
+            <div class="card" >
+                <img class="card-img-top" style="height: 15rem;" th:src="@{${'/display1?id=' + list.id}}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${list.title}"></h5>
                     <p class="card-text"><small class="text-muted" th:text="${list.about}"></small></p>
                 </div>
-                <div class="card-footer">
-                    <a th:href="@{/display1(id=${list.id})}" class="btn btn-info text-right" target="_blank">View</a>
-                    <a sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/delete1(id=${list.id})}" class="btn btn-info text-right" target="_blank">Delete</a>
+                <div class="card-footer d-flex justify-content-between">
+                    <a th:href="@{/view1(id=${list.id})}" class="btn btn-info text-right" >View</a>
+                    
+                    
+                    
+    <form sec:authorize="hasAuthority('ROLE_ADMIN')" th:action="@{/delete1(id=${list.id})}" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class="btn btn-info text-right" target="_blank">Delete</button>
+	</form>
+                   <!-- <a sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/delete1(id=${list.id})}" 
+                   					class="btn btn-info text-right" target="_blank">Delete</a> --> 
                 </div>
             </div>
         </div>
@@ -169,33 +162,11 @@
                 <a href="/add2"><button type="button" class="btn btn-primary">Add Image</button></a>
             </div>
             
-      <!--       <table class="table border" >
-                <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Image</th>
-                    <th scope="col">Created AT</th>
-                    <th scope="col">Title</th>
-                    <th scope="col">About</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">view</th>
-                    <th scope="col">delete</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr th:each="list : ${image2List}">
-                    <td th:text="${list.id}"></td>
-                    <td><img height="250px"  th:src="@{${'/display2?id=' + list.id}}" alt=""></td>
-                    <td th:text="${list.date}"></td>
-                     <td th:text="${list.title}"></td>
-                      <td th:text="${list.about}"></td>
-                      <td th:text="${list.price}"></td>
-                      <td><a th:href="@{/display2(id=${list.id})}" class="btn btn-info text-right" target="_blank">View</a></td>
-                      <td><a th:href="@{/delete2(id=${list.id})}" class="btn btn-info text-right" target="_blank">delete</a></td>
-                </tr>
-                </tbody>
-            </table>
-             -->
+             <div th:if="${param.deleted2}">
+          <div class="alert alert-warning">
+            Image deleted from Sale!!
+          </div>
+      </div>
             	
             	  <!--card starts here -->
             <!-- 	<div class="wrapper" id="grid">
@@ -221,17 +192,24 @@
     <div class="row">
         <div class="col-md-4 col-sm-6 mb-4" th:each="list : ${image2List}">
             <div class="card">
-                <img  class="card-img-top" th:src="@{${'/display2?id=' + list.id}}" alt="Card image cap">
+                <img  class="card-img-top" style="height: 15rem;" th:src="@{${'/display2?id=' + list.id}}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${list.title}"></h5>
                     <!--    <p class="card-text" th:text="${list.id}"></p> -->
                     <p class="card-text" th:text="${list.price}"></p>
                     <p class="card-text"><small class="text-muted" th:text="${list.about}"></small></p>
                 </div>
-                <div class="card-footer">
-                   <a th:href="@{/display2(id=${list.id})}" class="btn btn-info text-right" target="_blank">View</a>
-   					        <a  sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/delete2(id=${list.id})}" class="btn btn-info text-right" target="_blank">delete</a>
- 						   <a th:href="@{/buy(id=${list.id})}" class="btn btn-info text-right" target="_blank">buy</a>
+                <div class="card-footer  d-flex  justify-content-between">
+                  
+                    <a th:href="@{/view2(id=${list.id})}" class="btn btn-info text-right" >View</a>
+                   
+                   <form sec:authorize="hasAuthority('ROLE_ADMIN')" th:action="@{/delete2(id=${list.id})}" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class="btn btn-info text-right" target="_blank">Delete</button>
+	</form>
+   					       <!--   <a  sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/delete2(id=${list.id})}"
+   					        class="btn btn-info text-right" target="_blank">delete</a> -->
+ 						   <a th:href="@{/buy(id=${list.id})}" class="btn btn-info text-right" >buy</a>
                 </div>
             </div>
         </div>

@@ -28,6 +28,11 @@
 </nav>
 <div class="container">
     <div class="row col-md-10">
+    <div th:if="${param.updated}">
+          <div class="alert alert-success">
+            status updated!!
+          </div>
+      </div>
         <h2>List of orders</h2>
     </div>
     <table class="table table-bordered table-hover">
@@ -58,7 +63,7 @@
                 <td th:text = "${order.about}"></td>
                 <td th:text = "${order.price}"></td>
                 <td th:text = "${order.status}"></td>
-                <td><a sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/setstatus(id=${order.id})}" class="btn btn-info text-right" target="_blank">Update Status</a></td>
+                <td><a sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/setstatus(id=${order.id})}" class="btn btn-info text-right">Update Status</a></td>
                 <td th:text = "${order.phno}"></td>
                 <td th:text = "${order.address}"></td>
                 <td th:text = "${order.u}"></td>

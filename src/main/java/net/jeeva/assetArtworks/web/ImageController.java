@@ -45,6 +45,15 @@ public class ImageController {
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
     }
     
+    //view image1
+	@GetMapping("/view1")
+	public ModelAndView view1(@RequestParam("id") long id) {
+		ModelAndView mv = new ModelAndView("imageView1");
+	    mv.addObject("imageId", id);
+	    return mv;
+	}
+
+    
     // display image2
     @GetMapping("/display2")
     public ResponseEntity<byte[]> displayImage2(@RequestParam("id") long id) throws IOException, SQLException
@@ -55,22 +64,28 @@ public class ImageController {
         return ResponseEntity.ok().contentType(MediaType.IMAGE_JPEG).body(imageBytes);
     }
     
+  //view image2
+  	@GetMapping("/view2")
+  	public ModelAndView view2(@RequestParam("id") long id) {
+  		ModelAndView mv = new ModelAndView("imageView2");
+  	    mv.addObject("imageId", id);
+  	    return mv;
+  	}
+    
     //delete from image1
-    @GetMapping("/delete1")
-    @ResponseBody
+    @PostMapping("/delete1")
     public String deleteImage1(@RequestParam("id") long id)throws IOException, SQLException
     {
     	image1Service.deleteById(id);
-    	return "deleted";
+    	return "redirect:/home?deleted1";
     }
     
   //delete from image2
-    @GetMapping("/delete2")
-    @ResponseBody
+    @PostMapping("/delete2")
     public String deleteImage2(@RequestParam("id") long id)throws IOException, SQLException
     {
     	image2Service.deleteById(id);
-    	return "deleted";
+    	return "redirect:/home?deleted2";
     }
 
     // view All images(1&2)
