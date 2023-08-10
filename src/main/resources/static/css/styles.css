@@ -1,3 +1,4 @@
+
 .nav-item:hover
 {
   color: white;
@@ -14,7 +15,7 @@
 /*
       color                                               font
   MORNING SKY : #CAE4DB                           heading: forum
-  MIST : #7A9D96
+  MIST : #7A9D96   dark green
   HONEY :#DCAE10                                  sub-headings: arboria
   CERULEAN : #00303F
 
@@ -37,35 +38,16 @@
                                                       /* home */
 #home
 {
-  text-align: center;
-  width: 100%;
-  height: 710px;
-  background-color:#CAE4DB;
   padding: 60px;
+  margin-bottom: 100px;
 }
 
-.header-box
-{
-  margin-top: 68px;
-}
-
-.image-box
-{
-  background-color: white;
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
 
 .header-image-size
 {
-  height: 450px;
-  width: 450px;
+  height: 73%;
+  width: 73%;
   padding: 20px;
-}
-
-.home-words
-{
-  padding-top: 120px;
 }
 
 .home-heading
@@ -81,43 +63,51 @@
 }
 
 
+ @media (max-width: 993px) {
+   .home-heading {
+     font-size: 3.5em;
+   }
+   .home-subhead
+   {
+     font-size: 1.25em;
+   }
+   .header-image-size
+   {
+     height: 43%;
+     width:  43%;
+   }
+ }
 
+ @media (max-width: 480px) {
+   .home-heading {
+     font-size: 3em;
+   }
+   .home-subhead
+   {
+     font-size: 0.90em;
+   }
+ }
 
-/* @media (max-width:730px)
-{
-  #home
-  {
-    font-size: 16px;
-  }
-  .home-heading
-  {
-    font-size:5.0em;
-  }
-
-} */
 
 
 
                                     /* features */
-.features
+#features
 {
-  padding: 7% 15%;
   background-color: white;
-
-
 }
 .feature-box{
   text-align: center;
   padding: 4.5%;
 }
 
-.ficon
+.fa-solid
 {
   font-size: 50px;
   color: #7A9D96;
   margin: 1rem;
 }
-.ficon:hover
+.fa-solid:hover
 {
   color: #CAE4DB;
 }
@@ -127,10 +117,6 @@
 
 #portfolio
 {
-  /* margin-top: 58px; */
-  width: 100%;
-  height: 600px;
-  background-color:#CAE4DB;
   text-align: center;
   padding-top: 58px;
 
@@ -148,31 +134,32 @@
 
 
 
-                                              /* our-works
-                                              #CAE4DB                           heading: forum
-                                              MIST : #7A9D96*/
+                                              /* our-works*/
 #our-works
 {
-  width: 100%;
-  height: 1100px;
-  background-color:#CAE4DB;
-  /* color: white; */
+  margin-top: 100px;
+  background-color:white;
   text-align:center;
-
+  padding-left: 70px;
+  padding-right: 70px;
+  padding-bottom: 70px;
 }
 
-.our-works-img-size
-{
-  height:300px;
-  width: 100%;
-}
+.card-img-top {
+      height: 500px;
+      width: 100px;
+      padding: 30px;
+      object-fit: cover; /* Maintain aspect ratio and cover the container */
+    }
+
 
 .ow-header
 {
-  background-color:white;
   font-size: 50px;
-  margin-bottom: 50px;
-  /* padding-top: 50px; */
+}
+#our-works .card
+{
+  background-color: #CAE4DB;
 }
 .card-title
 {
@@ -191,12 +178,10 @@
                                                 /* contact */
 #contact
 {
-  width: 100%;
-  height: 250px;
   text-align: center;
+  padding: 50px;
 }
 .contact
 {
   padding: 20px;
-  margin-top: 70px;
 }
