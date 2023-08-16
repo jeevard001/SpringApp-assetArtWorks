@@ -18,8 +18,10 @@ import org.springframework.web.servlet.ModelAndView;
 
 import net.jeeva.assetArtworks.model.Image2;
 import net.jeeva.assetArtworks.model.Order;
+import net.jeeva.assetArtworks.repository.OrderRepository;
 import net.jeeva.assetArtworks.service.Image2Service;
 import net.jeeva.assetArtworks.service.OrderService;
+import net.jeeva.assetArtworks.web.dto.AllOrdersDto;
 import net.jeeva.assetArtworks.web.dto.OrderDto;
 @Controller
 public class OrderController {
@@ -31,15 +33,15 @@ public class OrderController {
 	private Image2Service image2Service;
 
 	
-	//for the admin to view all orders
-	@GetMapping("/orders")
-	public ModelAndView allOrders()
-	{
-		ModelAndView mv = new ModelAndView("orders");			//orders.html --> done
-		List<Order> orders = orderService.viewAll();
-		mv.addObject("orderList", orders);
-		return mv;
-	}
+	//finalized all orders
+		@GetMapping("/allOrders")
+		public  ModelAndView allOrders()
+		{
+			ModelAndView mv = new ModelAndView("allOrders");			//allOrders.html--> done
+			List<AllOrdersDto> orders = orderService.viewAllOrders();
+			mv.addObject("orderList", orders);
+			return mv;
+		}
 	
 	//for the users to see their own orders
 	@GetMapping("/userOrders")
@@ -136,11 +138,54 @@ public class OrderController {
 	public String updateStatus(@RequestParam("id") long id,@RequestParam("status") String status)
 	{
 		orderService.statusUpdate(id, status);
-		return "redirect:/orders?updated";
-		//return "redirect:/home?deleted2";
+		return "redirect:/allOrders?updated";
+		
 	}
 	
 	
 	
+	//test for the allorders
+	
+//	@Autowired
+//	private OrderRepository orderRepo;
+//	
+//	@GetMapping("/allOrders")
+//	@ResponseBody
+//	public List<AllOrdersDto> allOrdersT()
+//	{
+//		
+//		return orderRepo.findAllOrders();
+//	}
+//			
+//	
+//	@GetMapping("/allOrdersT")
+//	@ResponseBody
+//	public List<AllOrdersDto> allOrdersT1()
+//	{
+//		
+//		List<AllOrdersDto> orders = orderService.viewAllOrders();
+//		
+//		return orders;
+//	}   							
+									// test success
+	
+	
+	
+	//for the admin to view all orders    ------ "OLD ALL-ORDERS"
+	
+//		@GetMapping("/orders")
+//		public ModelAndView orders()
+//		{
+//			ModelAndView mv = new ModelAndView("orders");			//orders.html --> done
+//			List<Order> orders = orderService.viewAll();
+//			mv.addObject("orderList", orders);
+//			return mv;
+//		}
+	
+	
+	
+	
+	
+
 	
 }

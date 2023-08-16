@@ -9,6 +9,7 @@ import net.jeeva.assetArtworks.model.Order;
 import net.jeeva.assetArtworks.model.User;
 import net.jeeva.assetArtworks.repository.OrderRepository;
 import net.jeeva.assetArtworks.repository.UserRepository;
+import net.jeeva.assetArtworks.web.dto.AllOrdersDto;
 import net.jeeva.assetArtworks.web.dto.OrderDto;
 
 
@@ -49,10 +50,15 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 
+//	@Override
+//	public List<Order> viewAll() {
+//		
+//		return orderRepo.findAll();
+//	}
+
 	@Override
-	public List<Order> viewAll() {
-		
-		return orderRepo.findAll();
+	public List<AllOrdersDto> viewAllOrders() {
+		return orderRepo.findAllOrders();
 	}
 
 
@@ -75,5 +81,7 @@ public class OrderServiceImpl implements OrderService {
 		orderRepo.save(or);	
 	}
 
+
+	
 
 }
