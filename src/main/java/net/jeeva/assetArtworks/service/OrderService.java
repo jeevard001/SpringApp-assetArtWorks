@@ -12,11 +12,7 @@ import net.jeeva.assetArtworks.web.dto.OrderDto;
 public interface OrderService {
 	
 	public void saveOrder(OrderDto orderDto);
-	
-	//public List<Order> viewAll();  // for all orders
 	public void statusUpdate(Long id,String status);
-	public List<Order> viewAllByUser(String email);// for the user-my orders
-	
-	//test for the new allOrders
-	public List<AllOrdersDto> viewAllOrders();	// for all orders -  test success 
+	public List<Order> viewAllByUser(String email);// for the users to see my-orders
+	public List<AllOrdersDto> viewAllOrders();	// for the admin to see all-orders 
 }

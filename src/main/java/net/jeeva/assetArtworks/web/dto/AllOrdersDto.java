@@ -21,44 +21,6 @@ public class AllOrdersDto {
 	private long userId;
 	private String name;
     private String email;
-    
-    
-    
-    
-//	public AllOrdersDto(String type, String name) {
-//		super();
-//		this.type = type;
-//		this.name = name;
-//	}
-//	
-	
-    //1
-	public AllOrdersDto(String type, String email) {
-		super();
-		this.type = type;
-		this.email = email;
-	}
-
-	
-	//2
-	public AllOrdersDto(long id, Date date, String type, String email) {
-	super();
-	this.id = id;
-	this.date = date;
-	this.type = type;
-	this.email = email;
-}
-
-	//3
-	public AllOrdersDto(long id, Date date, String type, long userId, String email) {
-		super();
-		this.id = id;
-		this.date = date;
-		this.type = type;
-		this.userId = userId;
-		this.email = email;
-	}
-
 
 
 	public AllOrdersDto(long id, Date date, long imageId, String type, String title, String about, String phno,

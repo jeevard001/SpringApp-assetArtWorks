@@ -49,13 +49,6 @@ public class OrderServiceImpl implements OrderService {
 		orderRepo.save(order);	
 	}
 
-
-//	@Override
-//	public List<Order> viewAll() {
-//		
-//		return orderRepo.findAll();
-//	}
-
 	@Override
 	public List<AllOrdersDto> viewAllOrders() {
 		return orderRepo.findAllOrders();

@@ -37,7 +37,7 @@ public class OrderController {
 		@GetMapping("/allOrders")
 		public  ModelAndView allOrders()
 		{
-			ModelAndView mv = new ModelAndView("allOrders");			//allOrders.html--> done
+			ModelAndView mv = new ModelAndView("allOrders");			
 			List<AllOrdersDto> orders = orderService.viewAllOrders();
 			mv.addObject("orderList", orders);
 			return mv;
@@ -50,7 +50,7 @@ public class OrderController {
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String email = authentication.getName();
         
-		ModelAndView mv = new ModelAndView("userOrders");				//userOrders.html -->done
+		ModelAndView mv = new ModelAndView("userOrders");				
 		List<Order> orders = orderService.viewAllByUser(email);
 		mv.addObject("orderList", orders);
 		return mv;
@@ -59,7 +59,7 @@ public class OrderController {
 	//for the users to custom-order
 	@GetMapping("/order")
     public ModelAndView orderForm(){
-        return new ModelAndView("order");							//order.html
+        return new ModelAndView("order");							
     }
 	
 	
@@ -96,7 +96,7 @@ public class OrderController {
 			ModelAndView mv =new ModelAndView("buy");	
 			Image2 image2=image2Service.viewById(id);
 			mv.addObject("image2", image2);
-	        return mv;						//buy.html
+	        return mv;						
 	    }
 		
 		
@@ -131,7 +131,7 @@ public class OrderController {
 		ModelAndView mv =new ModelAndView("statusUpdate");
 		Long id1=id;
 		mv.addObject("id",id1);
-		return mv;			//statusUpdate.html
+		return mv;			
 	}
 	
 	@PostMapping("/setstatus")
@@ -142,50 +142,5 @@ public class OrderController {
 		
 	}
 	
-	
-	
-	//test for the allorders
-	
-//	@Autowired
-//	private OrderRepository orderRepo;
-//	
-//	@GetMapping("/allOrders")
-//	@ResponseBody
-//	public List<AllOrdersDto> allOrdersT()
-//	{
-//		
-//		return orderRepo.findAllOrders();
-//	}
-//			
-//	
-//	@GetMapping("/allOrdersT")
-//	@ResponseBody
-//	public List<AllOrdersDto> allOrdersT1()
-//	{
-//		
-//		List<AllOrdersDto> orders = orderService.viewAllOrders();
-//		
-//		return orders;
-//	}   							
-									// test success
-	
-	
-	
-	//for the admin to view all orders    ------ "OLD ALL-ORDERS"
-	
-//		@GetMapping("/orders")
-//		public ModelAndView orders()
-//		{
-//			ModelAndView mv = new ModelAndView("orders");			//orders.html --> done
-//			List<Order> orders = orderService.viewAll();
-//			mv.addObject("orderList", orders);
-//			return mv;
-//		}
-	
-	
-	
-	
-	
 
-	
 }

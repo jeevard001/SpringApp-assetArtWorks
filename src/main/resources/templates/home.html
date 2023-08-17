@@ -52,7 +52,6 @@
     </nav>
     
     				 <h2 sec:authorize="hasAuthority('ROLE_ADMIN')">Welcome Admin</h2> 
-    			<!-- 	 <h2 sec:authorize="hasAuthority('ROLE_USER')">Welcome </h2> <h2 sec:authentication="name"></h2>  -->
     				
     				
     				
@@ -61,14 +60,7 @@
 
     <div class="container">
 
-        <!-- <div class="row"> -->
-
-          <!-- <div class=" col-lg-5" style="text-align:center;">
-            <div>
-              <img class="header-image-size" src="images/ab3.jpg" alt="headerImage">
-            </div>
-          </div> -->
-                        <!-- col-lg-7 -->
+       
           <div class="   d-flex align-items-center justify-content-center" style="text-align:center;" >
             <div >
               <h1 class="home-heading">assetArtworks</h1>
@@ -76,8 +68,7 @@
             </div>
           </div>
 
-        <!-- </div> -->
-                  <!-- row div -->
+        
 
     </div>
 
@@ -101,26 +92,7 @@
             Image deleted from Our Works!!
           </div>
       </div>
-            
-        
-            
-              <!--card starts here -->
-            <!--  	<div class="wrapper" id="grid">
- 				 		<div class="card" th:each="list : ${image1List}" style="width: 22rem;">
-  						  <img  class="card-img-top" th:src="@{${'/display1?id=' + list.id}}" alt="Card image cap">
-   					 	  <div class="card-body">
-      				        <h5 class="card-title" th:text="${list.title}"></h5>
-    				         
-   					        <p class="card-text"><small class="text-muted" th:text="${list.about}"></small></p>
- 				          </div>
- 				           <div class="card-footer">
-     						<a th:href="@{/display1(id=${list.id})}" class="btn btn-info text-right" target="_blank">View</a>
-   					        <a sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/delete1(id=${list.id})}" class="btn btn-info text-right" target="_blank">delete</a>
- 						   </div>
- 				        </div> 
- 				    </div>   -->
- 				    
- 				      <!--card ends here-->
+           
  			 <!-- card tester our works-->
   <div class="container">
     <div class="row">
@@ -140,8 +112,7 @@
     <input type="hidden" name="_method" value="delete">
     <button type="submit" class="btn btn-info text-right" target="_blank">Delete</button>
 	</form>
-                   <!-- <a sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/delete1(id=${list.id})}" 
-                   					class="btn btn-info text-right" target="_blank">Delete</a> --> 
+                   
                 </div>
             </div>
         </div>
@@ -168,25 +139,8 @@
           </div>
       </div>
             	
-            	  <!--card starts here -->
-            <!-- 	<div class="wrapper" id="grid">
- 				 		<div class="card" th:each="list : ${image2List}" style="width: 22rem;">
-  						  <img  class="card-img-top" th:src="@{${'/display2?id=' + list.id}}" alt="Card image cap">
-   					 	  <div class="card-body">
-      				        <h5 class="card-title" th:text="${list.title}"></h5>
-    				      
-    				        <p class="card-text" th:text="${list.price}"></p>
-   					        <p class="card-text"><small class="text-muted" th:text="${list.about}"></small></p>
- 				          </div>
- 				           <div class="card-footer">
-     						<a th:href="@{/display2(id=${list.id})}" class="btn btn-info text-right" target="_blank">View</a>
-   					        <a  sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/delete2(id=${list.id})}" class="btn btn-info text-right" target="_blank">delete</a>
- 						   <a th:href="@{/buy(id=${list.id})}" class="btn btn-info text-right" target="_blank">buy</a>
- 						   </div>
- 				        </div> 
- 				    </div>    -->
+            	 
  				    
- 				      <!--card ends here-->
  				       <!-- card tester  for sale -->
  <div class="container">
     <div class="row">
@@ -195,7 +149,7 @@
                 <img  class="card-img-top" style="height: 15rem;" th:src="@{${'/display2?id=' + list.id}}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title" th:text="${list.title}"></h5>
-                    <!--    <p class="card-text" th:text="${list.id}"></p> -->
+                 
                     <p class="card-text" th:text="${list.price}"></p>
                     <p class="card-text"><small class="text-muted" th:text="${list.about}"></small></p>
                 </div>
@@ -207,8 +161,7 @@
     <input type="hidden" name="_method" value="delete">
     <button type="submit" class="btn btn-info text-right" target="_blank">Delete</button>
 	</form>
-   					       <!--   <a  sec:authorize="hasAuthority('ROLE_ADMIN')" th:href="@{/delete2(id=${list.id})}"
-   					        class="btn btn-info text-right" target="_blank">delete</a> -->
+   					       
  						   <a th:href="@{/buy(id=${list.id})}" class="btn btn-info text-right" >buy</a>
                 </div>
             </div>
